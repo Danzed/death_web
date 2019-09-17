@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.hourService.GetHours().subscribe(res => {
-      console.log(res);
       if (res.count > 0) {
         this.calendarEvents = this.calendarEvents.concat(res.rows);
       }

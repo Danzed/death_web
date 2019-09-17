@@ -55,11 +55,9 @@ export class HoursComponent implements OnInit {
       // tslint:disable-next-line: no-bitwise
       timestamps: ~~(Number(date) / 1000)
     };
-    console.log('aca', hour);
 
     this.hourService.CreateHours(hour).subscribe(res => {
       this.dialogRef.close(hour);
-      console.log(res);
     });
   }
 
