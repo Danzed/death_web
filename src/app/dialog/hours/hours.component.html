@@ -1,20 +1,24 @@
 <h1 mat-dialog-title>Hi</h1>
-<div mat-dialog-content>
-    <p>Date: {{ data.date }}</p>
-    <p>What is your name?</p>
-    <mat-form-field>
-        <input matInput [(ngModel)]="data.name">
-    </mat-form-field>
-    <p>What is your email?</p>
-    <mat-form-field>
-        <input matInput [(ngModel)]="data.email">
-    </mat-form-field>
-    <p>What time do you want to dance with death?</p>
-    <mat-form-field>
-        <input matInput [(ngModel)]="data.hour">
-    </mat-form-field>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">I don't want to dance</button>
-    <button mat-button (click)="onReserveClick()" cdkFocusInitial>Reserve</button>
-</div>
+<form [formGroup]="form"  role="form">
+    <div mat-dialog-content>
+        <p>Date: {{ data.date }}</p>
+        <p>What is your email?</p>
+        <mat-form-field>
+            <input type="email" matInput id="email" formControlName="email">
+            <mat-error *ngIf="email.dirty && email.errors">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+        <p>What time do you want to dance with death? (9 to 18)</p>
+        <mat-form-field>
+            <input type="number" matInput id="hour" formControlName="hour">
+            <mat-error *ngIf="hour.dirty && hour.errors">
+                Please enter a valid hour
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">I don't want to dance</button>
+        <button mat-button (click)="onReserveClick()" cdkFocusInitial>Reserve</button>
+    </div>
+</form>

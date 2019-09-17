@@ -4,9 +4,19 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
+import {
+  MatDialogModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule,
+  MatSnackBarModule
+} from '@angular/material';
 import { HoursComponent } from './dialog/hours/hours.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HoursService } from './services/hours.service';
 
 @NgModule({
   declarations: [
@@ -22,8 +32,10 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
-    FormsModule
-
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -31,7 +43,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatRippleModule
   ],
-  providers: [],
+  providers: [HoursService],
   bootstrap: [AppComponent],
   entryComponents: [HoursComponent]
 })

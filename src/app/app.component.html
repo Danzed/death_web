@@ -360,7 +360,7 @@
         left: 'prev,next today',
         center: 'title',
         right: 'listWeek'
-      }" [plugins]="calendarPlugins" [weekends]="calendarWeekends" [events]="calendarEvents"
+      }" [validRange]="validRange" [plugins]="calendarPlugins" [weekends]="calendarWeekends" [events]="calendarEvents"
     (dateClick)="handleDateClick($event)"></full-calendar>
 
   <!-- Footer -->
