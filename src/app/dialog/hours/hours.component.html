@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+    <p>Date: {{ data.date }}</p>
+    <p>What is your name?</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.name">
+    </mat-form-field>
+    <p>What is your email?</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.email">
+    </mat-form-field>
+    <p>What time do you want to dance with death?</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.hour">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">I don't want to dance</button>
+    <button mat-button (click)="onReserveClick()" cdkFocusInitial>Reserve</button>
+</div>
